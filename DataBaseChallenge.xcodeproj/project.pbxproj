@@ -54,14 +54,46 @@
 		E879C8721EF9935A00E9757B /* DataBaseChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				E879C8731EF9935A00E9757B /* AppDelegate.swift */,
-				E879C8751EF9935A00E9757B /* ViewController.swift */,
+				E879C8861EF9B1BE00E9757B /* Model */,
+				E879C8851EF9B1AE00E9757B /* View */,
+				E879C8871EF9B1C500E9757B /* Controller */,
+				E879C8881EF9B1F700E9757B /* Support Files */,
+			);
+			path = DataBaseChallenge;
+			sourceTree = "<group>";
+		};
+		E879C8851EF9B1AE00E9757B /* View */ = {
+			isa = PBXGroup;
+			children = (
 				E879C8771EF9935A00E9757B /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E879C8861EF9B1BE00E9757B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E879C8871EF9B1C500E9757B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E879C8751EF9935A00E9757B /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E879C8881EF9B1F700E9757B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E879C8731EF9935A00E9757B /* AppDelegate.swift */,
 				E879C87A1EF9935A00E9757B /* Assets.xcassets */,
 				E879C87C1EF9935A00E9757B /* LaunchScreen.storyboard */,
 				E879C87F1EF9935A00E9757B /* Info.plist */,
 			);
-			path = DataBaseChallenge;
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
