@@ -57,6 +57,9 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="ZCX-wl-JrK">
                                 <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="FSa-03-wbw" kind="show" id="irc-fL-dHt"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="search" id="Zs9-et-k9y">
                                 <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,12 +71,20 @@
             </objects>
             <point key="canvasLocation" x="936.79999999999995" y="776.76161919040487"/>
         </scene>
+        <!--Task-->
+        <scene sceneID="SYl-rK-7nM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Task" id="FSa-03-wbw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoS-vZ-oY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1601" y="776"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="w7K-Ef-ZRd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="txN-0L-Oay" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bAV-Oh-gwu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bAV-Oh-gwu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
