@@ -47,13 +47,34 @@ extension MainViewController: UITableViewDataSource {
 
         return cell
     }
+
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let taskViewController = self.storyboard?.instantiateViewController(withIdentifier: "taskViewController") as! TaskViewController
+
+        taskViewController.task = self.tasks[indexPath.row]
+        taskViewController.delegate = self
+
+        self.navigationController?.pushViewController(taskViewController, animated: true)
+    }
 }
 
 // MARK: - TaskViewControllerDelegate
 extension MainViewController: TaskViewControllerDelegate {
 
     func save(task: Task) -> Bool {
-        tasks.append(task)
+        self.tasks.append(task)
+        self.tasksTableView.reloadData()
+        return true
+    }
+
+    func update(task: Task) -> Bool {
+        // FIXME: Wrong Implementation. Just for testing
+        self.tasks.popLast()
+        self.tasks.append(task)
         self.tasksTableView.reloadData()
         return true
     }
