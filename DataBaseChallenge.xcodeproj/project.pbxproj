@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80B07971EFAEC500029F19B /* PreviewTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */; };
 		E879C8741EF9935A00E9757B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879C8731EF9935A00E9757B /* AppDelegate.swift */; };
 		E879C8761EF9935A00E9757B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879C8751EF9935A00E9757B /* MainViewController.swift */; };
 		E879C8791EF9935A00E9757B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E879C8771EF9935A00E9757B /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewTaskCell.swift; sourceTree = "<group>"; };
 		E879C8701EF9935A00E9757B /* DataBaseChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataBaseChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E879C8731EF9935A00E9757B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E879C8751EF9935A00E9757B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E80B07951EFAEB030029F19B /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
 		E879C8671EF9935A00E9757B = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		E879C8721EF9935A00E9757B /* DataBaseChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E80B07951EFAEB030029F19B /* CustomCell */,
 				E879C8861EF9B1BE00E9757B /* Model */,
 				E879C8851EF9B1AE00E9757B /* View */,
 				E879C8871EF9B1C500E9757B /* Controller */,
@@ -179,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80B07971EFAEC500029F19B /* PreviewTaskCell.swift in Sources */,
 				E879C8761EF9935A00E9757B /* MainViewController.swift in Sources */,
 				E879C8901EF9C4C500E9757B /* TaskViewController.swift in Sources */,
 				E879C88A1EF9B77900E9757B /* Task.swift in Sources */,
@@ -346,6 +358,7 @@
 				E879C8841EF9935A00E9757B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

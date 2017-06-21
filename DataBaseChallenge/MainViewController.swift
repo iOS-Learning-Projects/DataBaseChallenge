@@ -9,30 +9,53 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let tasks = [Task]()
+    var tasks = [Task]()
+
+    // MARK: - IBOutlets
+    @IBOutlet weak var tasksTableView: UITableView!
 
     // MARK: - IBActions
 
     // MARK: - ViewController Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newTaskSegue" {
+            let taskViewController = segue.destination as! TaskViewController
+            taskViewController.delegate = self
+        }
     }
-
 }
 
+// MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tasks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "previewTaskCell") as! PreviewTaskCell
+        
+        cell.nameLabel.text = self.tasks[indexPath.row].name
+
+        return cell
     }
+}
+
+// MARK: - TaskViewControllerDelegate
+extension MainViewController: TaskViewControllerDelegate {
+
+    func save(task: Task) -> Bool {
+        tasks.append(task)
+        self.tasksTableView.reloadData()
+        return true
+    }
+
 }
