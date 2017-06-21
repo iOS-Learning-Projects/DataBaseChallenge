@@ -12,7 +12,6 @@
         <!--Task View Controller-->
         <scene sceneID="RZk-4O-m7V">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fZH-AN-Bm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="G5g-Zw-ySY" customClass="TaskViewController" customModule="DataBaseChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ine-bj-Ff9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -87,28 +86,31 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" indentationWidth="10" rowHeight="80" id="xqo-Nr-agm">
-                                        <rect key="frame" x="0.0" y="415" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" indentationWidth="10" rowHeight="120" id="xqo-Nr-agm">
+                                        <rect key="frame" x="0.0" y="415" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="xqo-Nr-agm" id="9jF-gE-DAR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LfE-VS-Qq6">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="79.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="LfE-VS-Qq6">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="120"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data limite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-bw-Fkh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="1Tn-HL-m7z"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDn-k5-3Uv">
-                                                            <rect key="frame" x="0.0" y="40" width="345" height="39.5"/>
-                                                            <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="42C-jm-hjd">
+                                                            <rect key="frame" x="0.0" y="30" width="345" height="90"/>
+                                                            <date key="date" timeIntervalSinceReferenceDate="519759132.99644601">
+                                                                <!--2017-06-21 17:32:12 +0000-->
+                                                            </date>
+                                                        </datePicker>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -128,10 +130,29 @@
                             <outlet property="delegate" destination="G5g-Zw-ySY" id="esn-7x-IoR"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VNp-UR-DgW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mfc-ed-Wui">
+                            <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="popViewController:" destination="G5g-Zw-ySY" id="pT5-Ix-hnC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ary-qK-bb9">
+                            <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="saveTask:" destination="G5g-Zw-ySY" id="WbJ-jI-IcB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="AJq-K2-cH7" id="5Oe-PU-Qlo"/>
+                        <outlet property="limitDatePicker" destination="42C-jm-hjd" id="a7H-9i-PY2"/>
+                        <outlet property="nameTextField" destination="Ipq-7x-DV9" id="9aA-Z3-F4V"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZH-AN-Bm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-34" y="-59"/>
         </scene>
