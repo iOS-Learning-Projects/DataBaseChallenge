@@ -7,23 +7,43 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Task {
-    let name: String
-    let description: String
-    let limitDate: Date
-    let status: TaskStatus
+class Task: Object {
+    dynamic var id = 0
+    dynamic var name = ""
+    dynamic var textDescription = ""
+    dynamic var limitDate = Date()
+    private dynamic var status = TaskStatus.RawValue()
 
-    init(name: String, description: String, limitDate: Date) {
+    var statusEnum: TaskStatus {
+        get {
+            return TaskStatus(rawValue: self.status)!
+        }
+        set {
+            self.status = newValue.rawValue
+        }
+    }
+
+    override static func primaryKey() -> String {
+        return "id"
+    }
+
+    convenience init(name: String, description: String, limitDate: Date, id: Int?) {
+        self.init()
+
+        if let existingId = id { self.id = existingId }
+
         self.name = name
-        self.description = description
+        self.textDescription = description
         self.limitDate = limitDate
-        self.status = .todo
+        self.statusEnum = .todo
     }
 }
 
-enum TaskStatus {
+enum TaskStatus: String {
     case todo
     case doing
     case done
 }
+

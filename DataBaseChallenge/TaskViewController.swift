@@ -26,7 +26,8 @@ class TaskViewController: UITableViewController {
             !name.isEmpty, !description.isEmpty {
 
             let limitDate = self.limitDatePicker.date
-            let task = Task(name: name, description: description, limitDate: limitDate)
+
+            let task = Task(name: name, description: description, limitDate: limitDate, id: (self.task?.id))
 
             if self.isNewTask {
                 if (self.delegate?.save(task: task))! {
@@ -59,7 +60,7 @@ class TaskViewController: UITableViewController {
             self.isNewTask = false
 
             self.nameTextField.text = task.name
-            self.descriptionTextView.text = task.description
+            self.descriptionTextView.text = task.textDescription
             self.limitDatePicker.date = task.limitDate
         }
     }

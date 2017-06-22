@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E803A7651EFC3F8700F323E7 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E803A7641EFC3F8700F323E7 /* TaskController.swift */; };
 		E80B07971EFAEC500029F19B /* PreviewTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */; };
+		E80B07991EFAF9CB0029F19B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E80B07981EFAF9CB0029F19B /* RealmSwift.framework */; };
+		E80B079A1EFAF9CB0029F19B /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E80B07981EFAF9CB0029F19B /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E80B079D1EFAF9D60029F19B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E80B079C1EFAF9D60029F19B /* Realm.framework */; };
+		E80B079E1EFAF9D60029F19B /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E80B079C1EFAF9D60029F19B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E879C8741EF9935A00E9757B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879C8731EF9935A00E9757B /* AppDelegate.swift */; };
 		E879C8761EF9935A00E9757B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879C8751EF9935A00E9757B /* MainViewController.swift */; };
 		E879C8791EF9935A00E9757B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E879C8771EF9935A00E9757B /* Main.storyboard */; };
@@ -18,8 +23,26 @@
 		E879C8901EF9C4C500E9757B /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879C88F1EF9C4C500E9757B /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E80B079B1EFAF9CB0029F19B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E80B079E1EFAF9D60029F19B /* Realm.framework in Embed Frameworks */,
+				E80B079A1EFAF9CB0029F19B /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E803A7641EFC3F8700F323E7 /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewTaskCell.swift; sourceTree = "<group>"; };
+		E80B07981EFAF9CB0029F19B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		E80B079C1EFAF9D60029F19B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		E879C8701EF9935A00E9757B /* DataBaseChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataBaseChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E879C8731EF9935A00E9757B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E879C8751EF9935A00E9757B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -37,12 +60,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80B079D1EFAF9D60029F19B /* Realm.framework in Frameworks */,
+				E80B07991EFAF9CB0029F19B /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E803A7621EFC3F6000F323E7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E879C8751EF9935A00E9757B /* MainViewController.swift */,
+				E879C88F1EF9C4C500E9757B /* TaskViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E803A7631EFC3F7400F323E7 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				E803A7641EFC3F8700F323E7 /* TaskController.swift */,
+			);
+			name = ModelController;
+			sourceTree = "<group>";
+		};
 		E80B07951EFAEB030029F19B /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,11 +93,21 @@
 			name = CustomCell;
 			sourceTree = "<group>";
 		};
+		E80B07A01EFAFADE0029F19B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E80B079C1EFAF9D60029F19B /* Realm.framework */,
+				E80B07981EFAF9CB0029F19B /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E879C8671EF9935A00E9757B = {
 			isa = PBXGroup;
 			children = (
 				E879C8721EF9935A00E9757B /* DataBaseChallenge */,
 				E879C8711EF9935A00E9757B /* Products */,
+				E80B07A01EFAFADE0029F19B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +151,8 @@
 		E879C8871EF9B1C500E9757B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E879C8751EF9935A00E9757B /* MainViewController.swift */,
-				E879C88F1EF9C4C500E9757B /* TaskViewController.swift */,
+				E803A7631EFC3F7400F323E7 /* ModelController */,
+				E803A7621EFC3F6000F323E7 /* ViewController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -126,6 +178,8 @@
 				E879C86C1EF9935A00E9757B /* Sources */,
 				E879C86D1EF9935A00E9757B /* Frameworks */,
 				E879C86E1EF9935A00E9757B /* Resources */,
+				E80B079B1EFAF9CB0029F19B /* Embed Frameworks */,
+				E80B079F1EFAFA3E0029F19B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -185,6 +239,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E80B079F1EFAFA3E0029F19B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E879C86C1EF9935A00E9757B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -194,6 +264,7 @@
 				E879C8761EF9935A00E9757B /* MainViewController.swift in Sources */,
 				E879C8901EF9C4C500E9757B /* TaskViewController.swift in Sources */,
 				E879C88A1EF9B77900E9757B /* Task.swift in Sources */,
+				E803A7651EFC3F8700F323E7 /* TaskController.swift in Sources */,
 				E879C8741EF9935A00E9757B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 248SB9J68G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DataBaseChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.vital-edu.DataBaseChallenge";
@@ -331,6 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 248SB9J68G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DataBaseChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.vital-edu.DataBaseChallenge";

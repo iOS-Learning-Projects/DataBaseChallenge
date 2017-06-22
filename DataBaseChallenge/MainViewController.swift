@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var tasks = [Task]()
+    var tasks = TaskController()
 
     // MARK: - IBOutlets
     @IBOutlet weak var tasksTableView: UITableView!
@@ -37,13 +37,13 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tasks.count
+        return tasks.all().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "previewTaskCell") as! PreviewTaskCell
         
-        cell.nameLabel.text = self.tasks[indexPath.row].name
+        cell.nameLabel.text = self.tasks.findBy(id: indexPath.row).name
 
         return cell
     }
@@ -55,7 +55,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let taskViewController = self.storyboard?.instantiateViewController(withIdentifier: "taskViewController") as! TaskViewController
 
-        taskViewController.task = self.tasks[indexPath.row]
+        taskViewController.task = self.tasks.findBy(id: indexPath.row) // FIXME
         taskViewController.delegate = self
 
         self.navigationController?.pushViewController(taskViewController, animated: true)
@@ -66,15 +66,13 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: TaskViewControllerDelegate {
 
     func save(task: Task) -> Bool {
-        self.tasks.append(task)
+        self.tasks.create(task)
         self.tasksTableView.reloadData()
         return true
     }
 
     func update(task: Task) -> Bool {
-        // FIXME: Wrong Implementation. Just for testing
-        self.tasks.popLast()
-        self.tasks.append(task)
+        self.tasks.update(task: task)
         self.tasksTableView.reloadData()
         return true
     }
