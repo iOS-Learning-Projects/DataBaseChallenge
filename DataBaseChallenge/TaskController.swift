@@ -11,13 +11,15 @@ import RealmSwift
 
 struct TaskController {
     private var realm: Realm
+    private var tasks: Results<Task>
 
     init() {
         self.realm = try! Realm()
+        self.tasks = self.realm.objects(Task.self)
     }
 
     func all() -> Results<Task> {
-        return self.realm.objects(Task.self)
+        return self.tasks
     }
 
     func create(_ task: Task) {
@@ -34,7 +36,7 @@ struct TaskController {
 
     private func save(_ task: Task, updatingValues update: Bool = false) {
         // Set task ID
-        if (!update) { task.id = self.all().count }
+        if (!update) { task.id = self.tasks.count }
 
         try! realm.write {
             realm.add(task, update: update)

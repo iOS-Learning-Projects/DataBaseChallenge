@@ -85,12 +85,12 @@
 			name = ModelController;
 			sourceTree = "<group>";
 		};
-		E80B07951EFAEB030029F19B /* CustomCell */ = {
+		E80B07951EFAEB030029F19B /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 				E80B07961EFAEC500029F19B /* PreviewTaskCell.swift */,
 			);
-			name = CustomCell;
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		E80B07A01EFAFADE0029F19B /* Frameworks */ = {
@@ -122,7 +122,7 @@
 		E879C8721EF9935A00E9757B /* DataBaseChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				E80B07951EFAEB030029F19B /* CustomCell */,
+				E80B07951EFAEB030029F19B /* Custom */,
 				E879C8861EF9B1BE00E9757B /* Model */,
 				E879C8851EF9B1AE00E9757B /* View */,
 				E879C8871EF9B1C500E9757B /* Controller */,
