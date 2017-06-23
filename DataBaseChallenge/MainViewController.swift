@@ -102,8 +102,9 @@ extension MainViewController: UITableViewDelegate {
         taskViewController.delegate = self
 
         self.navigationController?.pushViewController(taskViewController, animated: true)
-    }
 
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - TaskViewControllerDelegate

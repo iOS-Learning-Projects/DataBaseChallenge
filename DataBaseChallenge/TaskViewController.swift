@@ -23,7 +23,7 @@ class TaskViewController: UITableViewController {
     @IBAction func saveTask(_ sender: UIBarButtonItem) {
         if  let name = self.nameTextField.text,
             let description = self.descriptionTextView.text,
-            !name.isEmpty, !description.isEmpty {
+            !name.isEmpty {
 
             let limitDate = self.limitDatePicker.date
 
@@ -42,6 +42,10 @@ class TaskViewController: UITableViewController {
                     print("Failed to save task")
                 }
             }
+        } else {
+            let alert = UIAlertController(title: "Campos não preenchidos", message: "O campo NOME deve ser preenchidos", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
