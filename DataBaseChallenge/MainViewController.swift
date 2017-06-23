@@ -78,10 +78,17 @@ extension MainViewController: UITableViewDataSource {
         if shouldShowSearchResults {
             cell.nameLabel.text = self.filteredTasks![indexPath.row].name
         } else {
-            cell.nameLabel.text = self.tasks.findBy(id: indexPath.row).name
+            cell.nameLabel.text = self.tasks[indexPath.row].name
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tasks.deleteTaskBy(id: indexPath.row)
+            tableView.reloadData()
+        }
     }
 
 }
@@ -91,11 +98,12 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let taskViewController = self.storyboard?.instantiateViewController(withIdentifier: "taskViewController") as! TaskViewController
 
-        taskViewController.task = self.tasks.findBy(id: indexPath.row) // FIXME
+        taskViewController.task = self.tasks[indexPath.row]
         taskViewController.delegate = self
 
         self.navigationController?.pushViewController(taskViewController, animated: true)
     }
+
 }
 
 // MARK: - TaskViewControllerDelegate

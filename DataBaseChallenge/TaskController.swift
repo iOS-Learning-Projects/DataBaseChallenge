@@ -34,6 +34,12 @@ struct TaskController {
         self.save(task, updatingValues: true)
     }
 
+    func deleteTaskBy(id: Int) {
+        try! self.realm.write {
+            realm.delete(self.tasks[id])
+        }
+    }
+
     private func save(_ task: Task, updatingValues update: Bool = false) {
         // Set task ID
         if (!update) { task.id = self.tasks.count }
@@ -42,5 +48,11 @@ struct TaskController {
             realm.add(task, update: update)
         }
 
-    } 
+    }
+
+    subscript(index: Int) -> Task {
+        get {
+            return self.tasks[index]
+        }
+    }
 }
